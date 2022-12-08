@@ -68,3 +68,46 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+function setProp(e)
+{
+    setStyle({background : e.target.value});
+}
+
+
+    const[styles,setStyle] = useState({background : 'red'});
+    
+    return(
+    <div>
+        <button onClick={(e)=>setStyle({background:"red"})}>Red</button>
+        <button onClick={(e)=>setStyle({background:"green"})}>green</button>
+        <input type = "color" onChange={setProp}></input>
+
+        <div className="square" style = {styles}></div>
+        
+    </div>
+
+    )
+
+
+    #2
+      const [users,setUsers]= useState([]);
+    const getUsers = ()=>
+    {
+       const url = "https://reqres.in/api/users";
+       fetch(url).then(res=>res.json()).then(data=>{
+        setUsers(data.data);
+       })
+
+
+    }
+    const getRow = (user,index)=>{
+        return(<tr key = {index}>
+            <td>{user.id}</td>
+            <td>{user.first_name}</td>
+            <td>{user.last_name}</td>
+            <td>{user.email}</td>
+        </tr>)
+
+    }
